@@ -1,15 +1,12 @@
-# BankChatBot
-
-# Info :
- Bank account credentials dummy databse :
- 
- Bank Account Number:Bank Account Pin <br>
- 12345678      :   &nbsp;          1111<br>
- 23456781      :   &nbsp;          2222<br>
- 
- 
- Page link : https://www.facebook.com/Federal-Bank-Buddy-141648523029088/
- 
- Demo video link : https://www.youtube.com/watch?v=HV85jplh56Y
- 
+# watson-fb-chatbot36
+```
+This chatbot doesn't contain any database.Messenger replies as a chatbot.
+```
+ # Steps:
+ ```
+ 1. Trian your chatbot in IBM watson.
+ 2. Use your credentials in your flask API.
+ 3. Set up webhook from facebook developer page.
+ 4. Use ngrok(temporary remote server) for creating the connection.
+ ```
  
