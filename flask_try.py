@@ -7,15 +7,15 @@ from database import db_session
 
 
 conversation = ConversationV1(
-    username= "b97f4e29-766b-46d4-aed8-a0ad9b793991",
-    password =  "jIlhixVovYEg",
-    version='2017-03-23'
+    username= "your-username",
+    password =  "password",
+    version='2version'
 )
 # replace with your own workspace_id
-workspace_id = '7faf61c3-b769-4834-a695-e817080705d5'
+workspace_id = 'workspace_id'
 
 #Token for facebook page
-token = "EAACB8TOcWdsBABc1Px8qlQdpDsUvK7Dz3conLYZCW9MX9RIhmnhQ9IjkT3Ez2DxbfNl6EB5izylEWKWcgybEpeTlf0njwFuw8G0AhGZAOZBGwFnZC247HO7cvNFChk8rbnRAbUJodlfueRCiLlWLzZCt0Sf6EHUu90QLAoRrWmcAItkAiTX7W"
+token = "facebook_page_token"
 
 app = Flask(__name__)
 
@@ -39,13 +39,13 @@ context = {}
 response = {}
 count = 1
 
-@app.route('/webhook', methods=['GET', 'POST'])
+@app.route('/webhook', methods=['GET', 'POST']) #here you can use whatever path you wanna specify.
 def webhook():
 
     if request.method == 'POST':
         try:
             data = json.loads(request.data)
-            text = data['entry'][0]['messaging'][0]['message']['text']  # Incoming Message Text
+            text = data['entry'][0]['messaging'][0]['message']['text']  # Incoming Message Text.To understand this you can check your watson trained json file.
             sender = data['entry'][0]['messaging'][0]['sender']['id']  # Sender ID
             global count
             # print "count was " + str(count)
@@ -87,7 +87,7 @@ def webhook():
             print ("Error ended")
     elif request.method == 'GET':  # For the initial verification
         if request.args.get(
-                'hub.verify_token') ==  "judgement_day":
+                'hub.verify_token') ==  "your_verification_token":
             return request.args.get('hub.challenge')
         return "Wrong Verify Token"
     return "Hello World!!!"  # Not Really Necessary
